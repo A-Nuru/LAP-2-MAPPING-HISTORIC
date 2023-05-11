@@ -167,7 +167,7 @@ function createOpenNavElem() {
 
   let openNavSpan = document.createElement("span");
   openNavSpan.id = "openNav";
-  openNavSpan.innerText = "click here";
+  openNavSpan.innerText = "Favorites (Click here)";
 
   document.body.appendChild(openNavSpan);
 
