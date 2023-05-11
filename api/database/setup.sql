@@ -2,6 +2,10 @@ DROP TABLE IF EXISTS post;
 DROP TABLE IF EXISTS token;
 DROP TABLE IF EXISTS favourites;
 DROP TABLE IF EXISTS user_account;
+
+
+-- DROP TABLE IF EXISTS restaurant_locations;
+
 DROP TABLE IF EXISTS points;
 
 
@@ -34,6 +38,7 @@ CREATE TABLE token (
     FOREIGN KEY (user_id) REFERENCES user_account("user_id")
 );
 
+
 CREATE TABLE favourites (
   fav_id INT GENERATED ALWAYS AS IDENTITY,
   user_id INT NOT NULL,
@@ -41,9 +46,37 @@ CREATE TABLE favourites (
   points_id INT NOT NULL,
   FOREIGN KEY (points_id) REFERENCES points("points_id")
 );
+-- CREATE TABLE restaurant_locations (
+--   id SERIAL PRIMARY KEY,
+--   name TEXT,
+--   address TEXT,
+--   city TEXT,
+--   state TEXT,
+--   zip TEXT,
+--   geom GEOMETRY(Point, 4326)
+-- );
+
+-- INSERT INTO restaurant_locations (name, address, city, state, zip, geom)
+-- VALUES (
+--   'Example Restaurant',
+--   '123 Main St',
+--   'San Francisco',
+--   'CA',
+--   '94105',
+--   ST_SetSRID(ST_MakePoint(-122.4090, 37.7837), 4326)
+-- );
+
+CREATE TABLE points (
+  id SERIAL PRIMARY KEY,
+  description TEXT,
+  icon TEXT,
+  geom GEOMETRY(Point, 4326)
+
+);
 
 INSERT INTO points (description, icon, geom)
 VALUES (
+
   '<strong>Make it Mount Pleasant</strong><p><a href="http://www.mtpleasantdc.com/makeitmtpleasant" target="_blank" title="Opens in a new window">Make it Mount Pleasant</a> is a handmade and vintage market and afternoon of live entertainment and kids activities. 12:00-6:00 p.m.</p>',
   'theatre',
   (SELECT ST_GeomFromGeoJSON('{"type": "Point", "coordinates": [-77.038659, 38.931567]}'))
@@ -60,5 +93,12 @@ VALUES (
 )
 ;
 
--- INSERT INTO favourites(user_id, points_id)
--- VALUES (1, 3);
+INSERT INTO favourites(user_id, points_id)
+VALUES (1, 3);
+
+  'Make it Mount Pleasant',
+  'theatre-15',
+  (SELECT ST_GeomFromGeoJSON('{"type": "Point", "coordinates": [-77.038659, 38.931567]}'))
+);
+
+
