@@ -3,4 +3,3 @@ node_modules
 .vscode
 coverage
 .env
-.mapboxapi.js

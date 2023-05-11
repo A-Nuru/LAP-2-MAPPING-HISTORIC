@@ -2,32 +2,103 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./assets/favicon.ico">
-    <link rel="stylesheet" href="./assets/default.css">
-    <script src="./assets/login.js" defer></script>
-    <title>Discretion</title>
+    <title>Diary</title>
+    <link rel="stylesheet" href="./assets/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit&family=Lobster&family=Mukta:wght@300&family=Rampart+One&family=Shantell+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
+    <script defer src="./assets/login.js"></script>
 </head>
 <body>
-    <header>
-        <h1>Discretion</h1>
-        <em>Not everything needs to be public.</em>
-    </header>
-    <hr />
-    <main>
-        <form id="login-form">
-            <fieldset>
+    <nav>
+        <div class="logo-container">
+            <a href="index.html" id="logo">
+                <img src="./assets/images/Screenshot 2023-05-10 at 11.28.10.png" alt="Logo" class="logo-img">
+                MyMAP<br><span class="somuch">Discovery in your community</span>
+            </a>
+        </div>
+        <div class="h1">
+            <h1>Login Page</h1>
+        </div>
+        <a href="index.html" id="HOME">Back HOME</a>
+    </nav>
+    <div id="main-container">
+        <div id="image-container">
+            <img src="./assets/images/user.gif" alt="Image" style="width: 200px; height: 300px;">
+        </div>
+        <div id="box1">
+            <h2>Login to go through to your Map!</h2>
+            <div id="container">
+                <h3 id="text"></h3>
+                <em id="play"></em>
+            </div>
+            <form id="login-form">
                 <label for="username">Username:</label>
-                <input type="text" id="username" name="username">
-            </fieldset>
-            <fieldset>
+                <input type="text" id="username" name="username" placeholder="Enter username...">
+                <br><br>
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password">
-            </fieldset>
-            <input type="submit" value="Log in">
-        </form>
-        <p>No account? <a href="./register.html">Sign up here</a>.</p>
-    </main>
+                <input type="password" id="password" name="password" placeholder="Enter password...">
+                <br><br>
+                <button type="submit" class="block" id="login"><b>Login</b></button>
+            </form>
+            <div class="dropdown">
+                <button id="signup-btn" onclick="toggleDropdown()"></button>
+                <div class="dropdown-content" id="signup-dropdown">
+                    <a href="register.html">Create an account</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="box2">
+        <h4><u>Connect on social media!</u></h4>
+        <p>
+            <a href="https://www.facebook.com"><span>Facebook</span></a> <br><br>
+            <a href="https://www.instagram.com"><span>Instagram</span></a> <br><br>
+            <a href="https://www.twitter.com"><span>Twitter</span></a>  <br><br>
+            <span></span>  <br><br>
+        </p>
+    </div>
+
+    <!-- <script>
+        const form = document.getElementById("login-form");
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Validate the user's input
+            if (username === "myusername" && password === "mypassword") {
+                // Add fade-out transition effect to the main-container
+                document.getElementById("main-container").classList.add("fade-out");
+
+                // Delay the page navigation to allow the fade-out effect to be visible
+                setTimeout(() => {
+                    // Redirect to the diary page
+                    window.location.href = form.action;
+                }, 500);
+            } else {
+                alert("Invalid username or password. Please try again.");
+            }
+        });
+
+        function toggleDropdown() {
+            const dropdown = document.getElementById("signup-dropdown");
+            dropdown.classList.toggle("show");
+        }
+
+        // This closes the dropdown if the user clicks outside of it
+        window.onclick = (event) => {
+            if (!event.target.matches(".dropdown button")) {
+                const dropdowns = document.getElementsByClassName("dropdown-content");
+                for (const dropdown of dropdowns) {
+                    if (dropdown.classList.contains("show")) {
+                        dropdown.classList.remove("show");
+                    }
+                }
+            }
+        }
+    </script> -->
 </body>
+
 </html>

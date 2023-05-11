@@ -25,6 +25,14 @@ class User {
         return new User(response.rows[0]);
     }
 
+    // static async getUserFavourites(username) {
+    //     const response = await db.query("SELECT points_id FROM user_account WHERE username = $1", [username])
+    //     if (response.rows.length != 1) {
+    //         throw new Error("Unable to locate user.");
+    //     }
+    //     return new User(response.rows[0]);
+    // }
+
     static async create(data) {
         const { username, password, isAdmin } = data;
         let response = await db.query("INSERT INTO user_account (username, password) VALUES ($1, $2) RETURNING user_id;",

@@ -1,15 +1,180 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>Display a popup on click</title>
-<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-<link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
-<script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
-<link rel="stylesheet" href="./index.css">
-<script defer src="./index.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY MAP</title>
+    <link rel="stylesheet" href="./assets/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit&family=Lobster&family=Mukta:wght@300&family=Rampart+One&family=Shantell+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
+    <script defer src="./index.js"></script>
 </head>
 <body>
-<div id="map"></div>
+    <nav>
+        <div class="logo-container">
+            <a href="index.html" id="logo">
+                <img src="./assets/images/Screenshot 2023-05-10 at 11.28.10.png" alt="Logo" class="logo-img">
+                MyMAP<br><span class="somuch">Discovery in your community</span>
+            </a>
+        </div>
+        <div class="search-container">
+            <form id="search-form">
+                <input type="text" id="search-input" placeholder="Start your search...">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+        <a href="login.html" id="sign-in">Sign In/Up</a>
+    </nav>
+    
+    <div id="socials" class="socials">
+        
+    <div class="slideshow-container fade">
+    
+        
+        <div class="Containers">
+          
+          <div class="Info"><h1>Community Announcements</h1></div>
+        </div>
+      
+        <div class="Containers">
+          
+        
+          <div class="Info"><h1>Community Spotlight</h1></div>
+        </div>
+      
+        <div class="Containers">
+          
+          
+          <div class="Info"><h1>Community Events</h1></div>
+        </div>
+    
+        <div class="Containers">
+           
+          
+            <div class="Info"><h1>Contact Infomation & FAQ's</h1></div>
+          </div>
+      
+        
+        <a class="Back" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="forward" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+      <br>
+      
+      
+      <div style="text-align:center">
+        <span class="dots" onclick="currentSlide(1)"></span>
+        <span class="dots" onclick="currentSlide(2)"></span>
+        <span class="dots" onclick="currentSlide(3)"></span>
+        <span class="dots" onclick="currentSlide(4)"></span>
+      </div> 
+    </div>
+    
+    <script>
+        var slidePosition = 1;
+    SlideShow(slidePosition);
+    
+    
+    function plusSlides(n) {
+      SlideShow(slidePosition += n);
+    }
+    
+    
+    function currentSlide(n) {
+      SlideShow(slidePosition = n);
+    }
+    
+    function SlideShow(n) {
+      var i;
+      var slides = document.getElementsByClassName("Containers");
+      var circles = document.getElementsByClassName("dots");
+      if (n > slides.length) {slidePosition = 1}
+      if (n < 1) {slidePosition = slides.length}
+      for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+      }
+      for (i = 0; i < circles.length; i++) {
+          circles[i].className = circles[i].className.replace(" enable", "");
+      }
+      slides[slidePosition-1].style.display = "block";
+      circles[slidePosition-1].className += " enable";
+    } 
+    </script>
+
+    <div id="main-container">
+        <div id="box1" class="fade-in">
+            <div class="description" onclick="navigateTo('map.html');"> <h4><u>Header, location name</u></h4> 
+                
+                The Colosseum, located in Rome,
+                Stands as a symbol of ancient glory and Rome's fame.
+                Built almost 2,000 years ago,
+                It was a site of gladiatorial combat and public spectacle, aglow.
+            </div>
+        </div>
+
+        <div id="box2" class="fade-in">
+            <div class="description" onclick="navigateTo('map.html');"><h4><u>Header, location name</u></h4> 
+                
+                The Colosseum, located in Rome,
+                Stands as a symbol of ancient glory and Rome's fame.
+                Built almost 2,000 years ago,
+                It was a site of gladiatorial combat and public spectacle, aglow.
+            </div>
+        </div>
+
+        <div id="box3" class="fade-in">
+            <div class="description" onclick="navigateTo('map.html');"><h4><u>Header, location name</u></h4> 
+                
+                The Colosseum, located in Rome,
+                Stands as a symbol of ancient glory and Rome's fame.
+                Built almost 2,000 years ago,
+                It was a site of gladiatorial combat and public spectacle, aglow.
+            </div>
+        </div>
+    </div>
+
+    <div id="main-container">
+        <div id="box4" class="fade-in">
+            <div class="description1" onclick="navigateTo('map.html');"><h4><u>Header, location name</u></h4> 
+                
+                The Colosseum, located in Rome,
+                Stands as a symbol of ancient glory and Rome's fame.
+                Built almost 2,000 years ago,
+                It was a site of gladiatorial combat and public spectacle, aglow.
+            </div>
+        </div>
+
+        <div id="box5" class="fade-in">
+            <div class="description1" onclick="navigateTo('map.html');"><h4><u>Header, location name</u></h4> 
+                
+                The Colosseum, located in Rome,
+                Stands as a symbol of ancient glory and Rome's fame.
+                Built almost 2,000 years ago,
+                It was a site of gladiatorial combat and public spectacle, aglow.
+            </div>
+        </div>
+        <div id="box6" class="fade-in">
+            <div class="description1" onclick="navigateTo('map.html');"><h4><u>Header, location name</u></h4> 
+                
+                The Colosseum, located in Rome,
+                Stands as a symbol of ancient glory and Rome's fame.
+                Built almost 2,000 years ago,
+                It was a site of gladiatorial combat and public spectacle, aglow.
+            </div>
+        </div>
+        
+    </div>
+    
+
+    <script>
+        function navigateTo(url) {
+            document.body.classList.add('fade-out');
+            setTimeout(function() {
+                window.location.href = url;
+            }, 500);
+        }
+    </script>
+
+
 </body>
 </html>

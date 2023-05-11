@@ -1,27 +1,38 @@
+const serverUrl = "https://diarysite.onrender.com";
+
 document.getElementById("login-form").addEventListener("submit", async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    const form = new FormData(e.target);
+  const form = new FormData(e.target);
 
-    const options = {
-        method: "POST",
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            username: form.get("username"),
-            password: form.get("password")
-        })
-    }
+  const options = {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      username: form.get("username"),
+      password: form.get("password"),
+    }),
+  };
 
-    const response = await fetch("http://localhost:3000/users/login", options);
-    const data = await response.json();
 
-    if (response.status == 200) {
-        localStorage.setItem("token", data.token);
-        window.location.assign("board.html");
-    } else {
-        alert(data.error);
-    }
-})
+  const response = await fetch(
+    `${serverUrl}/users/login`,
+    options
+  );
+  const data = await response.json();
+
+
+  if (response.status == 200) {
+    localStorage.setItem("token", data.token.token);
+
+    window.location.assign("map.html");
+  } else {
+
+    alert("Invalid username or password. Please try again.");
+  }
+});
+
+

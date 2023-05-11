@@ -27,6 +27,16 @@ describe('api server', () => {
             .expect(404, done)
     })
 
+
+    test('responds to delete /geojson/:id with status 404', (done) => {
+        request(api)
+            .delete('/geojson/:id')
+            .expect(404, done)
+        .expect
+    })
+
+
+
     
     
 })

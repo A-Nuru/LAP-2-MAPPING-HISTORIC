@@ -18,6 +18,7 @@ class Geo {
       this.data.features.push(feature);
     }
 
+
     static async getFeature() {
 
         const response = await db.query("SELECT description, icon, ST_AsGeoJSON(geom) as geom FROM points")
@@ -26,12 +27,24 @@ class Geo {
 
        return response.rows.map(p => 
         new Geo("geojson", [
+
             {
               type: "Feature",
               properties: {
                 description: p.description,
                 icon: p.icon,
               },
+
+              geometry: JSON.parse(p.geom)
+              ,
+            }
+        ))
+
+          console.log(features)
+
+        return new Geo("geojson", features)
+
+
               geometry: 
 
             JSON.parse(p.geom)
@@ -40,10 +53,13 @@ class Geo {
           ])
         )
 
+
   }
 }
 
 module.exports = Geo;
+
+
 
 
 // let sample = {
@@ -68,3 +84,4 @@ module.exports = Geo;
 //         ]
 //     }
 // }
+

@@ -1,6 +1,7 @@
 body{
-    margin: 40px auto;
-    max-width: 650px;
+    background-color: rgb(244, 244, 244);
+    /* margin: 40px auto; */
+    /* max-width: 650px; */
     line-height: 1.6;
     font-size: 18px;
     color: #444444;
@@ -8,7 +9,8 @@ body{
 }
 
 h1,h2,h3 {
-    line-height: 1.2
+    line-height: 1.2;
+   
 }
 
 fieldset {
@@ -19,4 +21,20 @@ fieldset {
     display: flex;
     flex-direction: column;
     padding: 0.2rem;
+}
+
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
+.h-custom {
+height: calc(100% - 73px);
+}
+@media (max-width: 450px) {
+.h-custom {
+height: 100%;
+}
 }
